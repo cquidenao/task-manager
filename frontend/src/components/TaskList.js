@@ -21,11 +21,17 @@ const TaskList = () => {
   const fetchTasks = async () => {
     try {
       const response = await api.get("/tasks");
-      setTasks(response.data.tasks);
+      if (response && Array.isArray(response.data.tasks)) {
+        setTasks(response.data.tasks); 
+      } else {
+        setTasks([]);
+      }
     } catch (error) {
-      console.error("Error al obtener las tareas:", error);
+      console.error("Error al obtener tareas:", error);
+      setTasks([]); 
     }
   };
+  
 
   const completeTask = async (id, completed) => {
     try {
@@ -63,13 +69,13 @@ const TaskList = () => {
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Gestión de Tareas</h1>
       <div className="space-y-4">
-        {tasks.map((task) => (
+        {Array.isArray(tasks) && tasks.map((task) => (
           <div
             key={task._id}
             className="p-4 border rounded-lg bg-white dark:bg-gray-800 shadow-md"
             style={{
               borderLeftWidth: "6px",
-              borderColor: task.completed ? "#32E2F6" : "#FF5733", // Verde para completadas, rojo para pendientes
+              borderColor: task.completed ? "#32E2F6" : "#FF5733", 
             }}
           >
             {editingTaskId === task._id ? (

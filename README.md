@@ -111,6 +111,8 @@ Es recomendable usar PM2 o alguna otra herramienta similar para manejar el backe
 
 ## Enlaces de Despliegue
 **Frontend**:https://task-manager-five-azure.vercel.app/
+
 **Backend**:task-manager-production-1639.up.railway.app
+
 **Documentación de la API (Swagger)**:http://localhost:5000/api-docs
 
