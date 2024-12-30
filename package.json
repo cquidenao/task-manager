@@ -1,29 +1,44 @@
 {
-  "name": "task-manager",
-  "version": "1.0.0",
-  "description": "Task Manager - Full Stack Application",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-    "backend": "nodemon backend/app.js",
-    "frontend": "cd frontend && npm start"
-  },
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": ".",  
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "express": "^4.18.2",
-    "mongoose": "^7.0.4",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.1",
+    "@chakra-ui/react": "^3.2.3",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "axios": "^1.7.9",
+    "cra-template": "1.2.0",
+    "framer-motion": "^11.15.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "5.0.1",
+    "web-vitals": "^4.2.4",
+    "concurrently": "^7.1.0"
   },
-  "devDependencies": {
-    "concurrently": "^9.1.1",
-    "nodemon": "^2.0.20"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
