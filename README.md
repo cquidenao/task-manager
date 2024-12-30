@@ -9,18 +9,18 @@ Base de datos: MongoDB
 Sigue estos pasos para instalar y ejecutar el proyecto en tu máquina local.
 
 1. Clonar el Repositorio
-Clona los repositorios del Frontend y Backend.
+
 
 bash
 Copiar código
-git clone https://github.com/tu-usuario/taskmanager-frontend.git
-git clone https://github.com/tu-usuario/taskmanager-backend.git
+git clone https://github.com/cquidenao/task-manager.git
+
 2. Configurar el Backend
 Navega al directorio del backend:
 
 bash
 Copiar código
-cd taskmanager-backend
+cd backend
 Instala las dependencias:
 
 bash
@@ -42,7 +42,7 @@ Ejecuta el servidor:
 
 bash
 Copiar código
-npm start
+npm run dev
 El backend estará disponible en http://localhost:5000.
 
 3. Configurar el Frontend
@@ -50,7 +50,7 @@ Navega al directorio del frontend:
 
 bash
 Copiar código
-cd taskmanager-frontend
+cd frontend
 Instala las dependencias:
 
 bash
@@ -67,7 +67,7 @@ Ejecuta el frontend:
 
 bash
 Copiar código
-npm start
+npm run dev
 El frontend estará disponible en http://localhost:3000.
 
 4. Configuración de Modo Oscuro
