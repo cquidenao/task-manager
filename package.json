@@ -1,0 +1,35 @@
+{
+  "name": "task-manager",
+  "version": "1.0.0",
+  "description": "Task Manager - Full Stack Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "nodemon backend/app.js",
+    "frontend": "cd frontend && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.0",
+    "mongoose": "^7.0.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@chakra-ui/cli": "^3.2.3",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.1",
+    "nodemon": "^2.0.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17"
+  }
+}
