@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import api from "../services/api";
 
 const TaskList = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]); // Estado inicial como un arreglo vacío
   const [viewedTaskId, setViewedTaskId] = useState(null);
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editFields, setEditFields] = useState({ title: "", description: "" });
@@ -21,17 +21,13 @@ const TaskList = () => {
   const fetchTasks = async () => {
     try {
       const response = await api.get("/tasks");
-      if (response && Array.isArray(response.data.tasks)) {
-        setTasks(response.data.tasks); 
-      } else {
-        setTasks([]);
-      }
+      console.log("Respuesta de la API:", response.data); // Log para verificar la estructura de los datos
+      setTasks(Array.isArray(response?.data?.tasks) ? response.data.tasks : []); // Verificación robusta
     } catch (error) {
       console.error("Error al obtener tareas:", error);
-      setTasks([]); 
+      setTasks([]); // Mantener el estado como un arreglo vacío en caso de error
     }
   };
-  
 
   const completeTask = async (id, completed) => {
     try {
@@ -69,13 +65,14 @@ const TaskList = () => {
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-6">Gestión de Tareas</h1>
       <div className="space-y-4">
-        {Array.isArray(tasks) && tasks.map((task) => (
+        {/* Verificación adicional antes de usar .map() */}
+        {tasks && Array.isArray(tasks) && tasks.map((task) => (
           <div
             key={task._id}
             className="p-4 border rounded-lg bg-white dark:bg-gray-800 shadow-md"
             style={{
               borderLeftWidth: "6px",
-              borderColor: task.completed ? "#32E2F6" : "#FF5733", 
+              borderColor: task.completed ? "#32E2F6" : "#FF5733",
             }}
           >
             {editingTaskId === task._id ? (
@@ -190,6 +187,10 @@ const TaskList = () => {
             )}
           </div>
         ))}
+        {/* Mensaje en caso de que no haya tareas */}
+        {tasks.length === 0 && (
+          <p className="text-gray-500">No hay tareas disponibles.</p>
+        )}
       </div>
     </div>
   );
